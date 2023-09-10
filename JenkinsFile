@@ -25,8 +25,8 @@ pipeline{
                                 "pattern": "**/**/*.*ar",
                                 "target": "proj/"
                             }
-                        ]'''
-                    }
+                        ]
+                    }'''
                 )
             }
         }
