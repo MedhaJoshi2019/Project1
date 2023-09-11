@@ -12,7 +12,7 @@ pipeline{
         }
         stage('install'){
             steps{
-                sh 'mvn clean install -D skipTests=true'
+                sh 'mvn clean install -DskipTests=true'
             }
         }
 stage('sonar'){
@@ -25,29 +25,19 @@ stage('sonar'){
         stage("jfrog"){
             steps{
                 rtUpload(
-                    serverId: 'jfrog',
+                    serverId: 'my-jfrog',
                     spec: '''{
                         "files": [
                           {
                                 "pattern": "**/**/*.*ar",
-                                "target": "proj/"
+                                "target": "proj-my-frog/"
                             }
                         ]
                     }'''
                 )
             }
         }
-
-    stage('Build') {
-            steps {
-                // Checkout your source code from a version control system like Git
-               // checkout scm
-
-                // Build your application (replace with your build commands)
-                sh 'docker build -t frontend_dock:v1 frontend/ '
-                sh 'docker build -t backend_dock:v1 backend/ '
-            }
-}
+ 
 
 }
 
