@@ -28,7 +28,7 @@ stage('sonar'){
                     serverId: 'jfrog',
                     spec: '''{
                         "files": [
-{
+                          {
                                 "pattern": "**/**/*.*ar",
                                 "target": "proj/"
                             }
@@ -37,5 +37,18 @@ stage('sonar'){
                 )
             }
         }
-    }
+
+    stage('Build') {
+            steps {
+                // Checkout your source code from a version control system like Git
+                checkout scm
+
+                // Build your application (replace with your build commands)
+                sh 'docker build -t frontend_dock:v1 .'
+                sh 'docker build -t backend_dock:v1 . '
+            }
+
+
 }
+}
+
