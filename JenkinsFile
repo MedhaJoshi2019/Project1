@@ -44,8 +44,8 @@ stage('sonar'){
                // checkout scm
 
                 // Build your application (replace with your build commands)
-                sh 'docker build -t frontend_dock:v1 .'
-                sh 'docker build -t backend_dock:v1 . '
+                sh 'docker build -t frontend_dock:v1 frontend/ '
+                sh 'docker build -t backend_dock:v1 backend/ '
             }
 }
 
