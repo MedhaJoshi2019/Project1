@@ -41,7 +41,7 @@ stage('sonar'){
     stage('Build') {
             steps {
                 // Checkout your source code from a version control system like Git
-                checkout scm
+               // checkout scm
 
                 // Build your application (replace with your build commands)
                 sh 'docker build -t frontend_dock:v1 .'
