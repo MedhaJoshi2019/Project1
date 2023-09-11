@@ -47,8 +47,7 @@ stage('sonar'){
                 sh 'docker build -t frontend_dock:v1 .'
                 sh 'docker build -t backend_dock:v1 . '
             }
-
-
 }
+
 }
 
